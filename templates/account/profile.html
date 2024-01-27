@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %} Profile Page {% endblock %}
+{% block breadcrumb %} Profile {% endblock %}
+
+{% block content %}
+<h1>Profile</h1>
+
+<div class="row">
+    {% if user_profile %}
+        {% for user_info in user_profile %}
+        <div class="col-md-3">
+            <p>User Name: {{ user_info.username }}</p>
+            <p>First Name: {{ user_info.first_name }}</p>
+            <p>Last Name: {{ user_info.last_name }}</p>           
+            <p>Email: {{ user_info.email }}</p>
+        {% endfor %}
+        </div>
+    {% endif %}
+</div>
+<p><a href="{%url 'update' user.id %}">Update Profile</a></p>
+{% endblock %}

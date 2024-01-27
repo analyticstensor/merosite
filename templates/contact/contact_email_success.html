@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %} Message Sent {% endblock %}
+{% block breadcrumb %} Message Sent {% endblock %}
+
+{% block content %}
+<h1>Message sent successfully!</h1>
+<p> Your message has been sent. Thank you!<br><br>    
+    Sincerely,<br>
+    Technical Support Team<br>
+    {{ site_info.NAME|capfirst }}
+</p>
+{% endblock %}

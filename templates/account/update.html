@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %} Update Account {% endblock %}
+{% block breadcrumb %} Update Account {% endblock %}
+
+{% block content %}
+{% csrf_token %}
+{% crispy form form.helper %}       
+{% endblock %}
