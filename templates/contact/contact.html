@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %} Contact{% endblock %}
+{% block breadcrumb %} Contact{% endblock %}
+
+{% block content %}
+<h2> Contact</h2>
+
+    {% csrf_token %}
+    {% if user.is_authenticated %}
+        <b>Hi {{ user.get_full_name }},</b><br><br>
+        <p>Let's us know, how can we help you? Our team will contact you after we receive your information. Please fill the form below and submit.</p>
+    {% else %}
+        <p>Thank you for your interest in {{ site_info.NAME|capfirst }} {{ site_info.DESCRIPTION }}. Our team will contact you after we receive your information. Please fill the form below and submit.</p><br>
+    {% endif %}
+    {% crispy form form.helper %}
+{% endblock %}
