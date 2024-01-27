@@ -17,7 +17,6 @@ class SignUpView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy("login")
     template_name = "authenticate/signup.html"
-    #success_message = "Dear %(user_name)s your acccount has been created successfully."
 
 class AuthPasswordChangeView(PasswordChangeView):
     form_class = CustomPasswordChangeForm
@@ -31,10 +30,7 @@ class AuthPasswordResetView(PasswordResetView):
     template_name = "authenticate/password_reset_form.html"
     email_template_name = "authenticate/password_reset_email.html"
     subject_template_name = "authenticate/password_reset_subject.txt"
-    success_url = reverse_lazy("password_reset_done")
-    #success_message = """We’ve emailed you instructions for setting your password, if an account exists with the email you entered. You should receive them shortly. If you don’t receive an email, please make sure you’ve entered the address you registered with, and check your spam folder."""
-    
-    # https://dev.to/earthcomfy/django-reset-password-3k0l
+    success_url = reverse_lazy("password_reset_done")    
 
 class AuthPasswordResetDoneView(TemplateView):
     template_name = "authenticate/password_reset_done.html"
