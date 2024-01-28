@@ -22,6 +22,8 @@ The contact page facilitate logged user as well as visitor to send their comment
 An application logs as well as some user interaction log will be stored into `logs` directory.
 
 ## Prerequisite
+Make sure you have latest version(>=3.12) of Python.
+
 1. Install any Django supported database. _This site uses MySQL database._
     * Create same database user, and password defined in environment variable file stored at `~/.merosite_env`
     * Login to database server either from CLI or console.
@@ -36,7 +38,7 @@ An application logs as well as some user interaction log will be stored into `lo
     mysql> create database if not exists merosite;
     mysql> exit;
     ```
-2. Create virtual environment and activate.
+2. Create virtual environment and activate. [More info](https://docs.python.org/3/library/venv.html)
 
     * Using `venv`
     ```bash
@@ -51,8 +53,8 @@ An application logs as well as some user interaction log will be stored into `lo
 
     * Using `conda`
     ```bash
-    # create virtual environment
-    $ conda create --name webapps_venv
+    # create virtual environment of Python 3.12
+    $ conda create --name webapps_venv python=3.12
 
     # list virtual environment
     $ conda env list 
@@ -73,6 +75,8 @@ An application logs as well as some user interaction log will be stored into `lo
     ```bash
     pip install -r requirements.txt
     ```
+    _*Note*_: If there is an error while installing `mysqlclient` then follow this [link](https://github.com/PyMySQL/mysqlclient/blob/main/README.md).
+
 5. Create `~/.merosite_env` file that stores environment variable used in `setting.py`
 Copy + Paste the below lines.
     ```
@@ -98,15 +102,15 @@ Copy + Paste the below lines.
     ```
 7. Create required table objects define in `model.py`
     ```bash
-    $python manage.py makemirations
-    $python manage.py migrate authenticate
-    $python manage.py migrate contact
-    $python manage.py migrate
+    $ python manage.py makemigration
+    $ python manage.py migrate authenticate
+    $ python manage.py migrate contact
+    $ python manage.py migrate
     ```
 8. Create super user (aka admin) for web application
     ```bash
-    # fill the username, email, and password
-    $python manage.py createsuperuser
+    # enter username, email, and password
+    $ python manage.py createsuperuser
     ```
 9. Run server to start web application. _*Note*_: Make sure your using same shell while running below command otherwise environment variable will not work.
     ```bash
@@ -131,7 +135,7 @@ Copy + Paste the below lines.
     $ deactivate
 
     # delete virtual environment directory
-    # rm -rf webapps_venv
+    $ rm -rf webapps_venv
     ```
 * Deactivate the enviroment for `conda`
     ```bash
