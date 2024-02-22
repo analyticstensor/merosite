@@ -102,7 +102,7 @@ Copy + Paste the below lines.
     ```
 7. Create required table objects define in `model.py`
     ```bash
-    $ python manage.py makemigration
+    $ python manage.py makemigrations
     $ python manage.py migrate authenticate
     $ python manage.py migrate contact
     $ python manage.py migrate
